@@ -35,12 +35,11 @@
 namespace Ikarus\SPS\Control;
 
 
-use Ikarus\SPS\AbstractBrick;
 use Ikarus\SPS\ActorBrickInterface;
 use Ikarus\SPS\Event\DispatchedEventInterface;
 use TASoft\EventManager\EventManager;
 
-class TransformEventBrick extends AbstractBrick implements ActorBrickInterface
+class TransformEventBrick implements ActorBrickInterface
 {
     /** @var array */
     private $sourceEventNames;

@@ -32,9 +32,48 @@
  *
  */
 
-namespace Ikarus\SPS;
+namespace Ikarus\SPS\Control;
 
 
-abstract class AbstractBrick implements BrickInterface
+use Ikarus\SPS\Event\DispatchedEventInterface;
+use Ikarus\SPS\Plugin\Listener\AbstractListenerPlugin;
+use Ikarus\SPS\Plugin\Listener\ListenerPluginInterface;
+use TASoft\EventManager\EventManager;
+
+/**
+ * The combine Events brick forwards an event only if all registered event names were fired during a given time interval.
+ *
+ * @package Ikarus\SPS\Control
+ */
+class CombineEventsBrick extends AbstractListenerPlugin implements ListenerPluginInterface
 {
+    /** @var float */
+    private $interval;
+
+    public function __construct(array $eventNames, $interval = 1)
+    {
+        parent::__construct($eventNames);
+        $this->interval = $interval;
+    }
+
+    public function __invoke(string $eventName, DispatchedEventInterface $event, EventManager $eventManager, ...$arguments)
+    {
+
+    }
+
+    /**
+     * @return float
+     */
+    public function getInterval(): float
+    {
+        return $this->interval;
+    }
+
+    /**
+     * @param float $interval
+     */
+    public function setInterval(float $interval): void
+    {
+        $this->interval = $interval;
+    }
 }
