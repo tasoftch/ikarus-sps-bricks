@@ -1,6 +1,6 @@
 {
-  "name": "tasoft/phpstorm-template",
-  "license": "MIT",
+  "name": "ikarus/sps-bricks",
+  "license": "BSD-3-Clause",
   "minimum-stability": "dev",
   "authors": [
     {
